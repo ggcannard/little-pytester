@@ -1,0 +1,17 @@
+version: "3"
+services:
+  someservice:
+    image: ${DOCKER_IMAGE}:${DOCKER_TAG}
+    container_name: somecontainer
+    networks:
+      - testnet
+
+  postgres:
+    image: postgres:11
+    networks:
+      - testnet
+    ports:
+      - "8000:8000"
+
+networks:
+  testnet:
